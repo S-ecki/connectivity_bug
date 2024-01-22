@@ -1,6 +1,9 @@
 # connectivity_plus bug
 This is a minimal reproducible example of an unexpected behaviour in the [connectivity_plus plugin](https://pub.dev/packages/connectivity_plus), a widely used Dart package to discover network connectivity.
 
+### Link to Issue
+https://github.com/fluttercommunity/plus_plugins/issues/2527
+
 ### Problem Case
 When listening to the `Connectivity().onConnectivityChanged` stream and inspecting the first emitted event, the behaviour is different when the event is expected to be `ConnectivityResult.none` compared to any other case.
 
