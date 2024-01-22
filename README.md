@@ -24,3 +24,15 @@ The problem only occurs for the very first event and only if it should be `Conne
 4. Wait and see that there will never be an event
 5. Turn on the internet connection
 6. See correct `ConnectivityResult` again
+
+### Workaround
+There is a known workaround, also outlined in [this](https://www.youtube.com/watch?v=9DcGmewaB-c) video from Randal Schwartz, where you query the first event with `Connectivity().checkConnectivity()` manually and prepand the stream with it.
+
+The code could roughly look like this (taken from video linked above):
+```dart
+Stream<ConnectivityResult> get connectivityStream async* {
+    final c = Connectivity();
+    yield await c.checkConnectivity;
+    yield* c.onConnectivityChanged;
+}
+```
